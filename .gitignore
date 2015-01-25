@@ -15,3 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore npm packages.
+/node_modules
+
+# Ignore bundle file.
+/app/assets/javascripts/bundle.js

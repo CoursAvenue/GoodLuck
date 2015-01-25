@@ -1,0 +1,20 @@
+{
+  "name": "GoodLuck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "browserify app/assets/javascripts/main.js -o app/assets/javascripts/bundle.js",
+    "watch-js": "watchify app/assets/javascripts/main.js -o app/assets/javascripts/bundle.js",
+    "start": "npm run watch-js & rails s"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^8.1.1",
+    "watchify": "^2.2.1"
+  },
+  "dependencies": {
+    "backbone": "^1.1.2"
+  }
+}
