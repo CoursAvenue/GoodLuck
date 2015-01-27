@@ -20,4 +20,4 @@
 /node_modules
 
 # Ignore bundle file.
-/app/assets/javascripts/bundle.js
+/public/assets/javascripts/bundle.js

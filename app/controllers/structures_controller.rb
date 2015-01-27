@@ -2,8 +2,9 @@ class StructuresController < ApplicationController
 
   # GET /structures
   # GET /structures.json
-  def index
+
+  def all
     @structures = Structure.all
-    @structures.to_json
+    render json: @structures
   end
 end
