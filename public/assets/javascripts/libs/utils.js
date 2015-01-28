@@ -64,9 +64,10 @@ module.exports = {
   },
 
   doSearch: function (list, query, cb) {
-    var searchBySubject = this.bySubject(list, query);
-    var searchByName    = this.byName(list, query);
-    var fusionResult    = _.extend(searchBySubject, searchByName);
+    var searchBySubject     = this.bySubject(list, query);
+    var searchByName        = this.byName(list, query);
+    var searchByDescription = this.byDescription(list, query);
+    var fusionResult        = _.extend({}, searchBySubject, searchByName, searchByDescription);
 
     cb(null, fusionResult);
   },
@@ -86,6 +87,15 @@ module.exports = {
     });
 
     console.log('byName', results);
+    return results;
+  },
+
+  byDescription: function (list, query) {
+    var results = list.filter(function(entry) {
+      return entry.description.toUpperCase().indexOf(query.toUpperCase()) !== -1;
+    });
+
+    console.log('byDescription', results);
     return results;
   }
 

@@ -16,6 +16,13 @@
 !/log/.keep
 /tmp
 
+# Ignore css built.
+/public/assets/stylesheets/all.css
+/public/assets/stylesheets/all.css.map
+
+# Ignore sass cache.
+.sass-cache
+
 # Ignore npm packages.
 /node_modules
 

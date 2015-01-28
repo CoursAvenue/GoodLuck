@@ -1,4 +1,6 @@
-var React                 = require('React'),
+var Backbone              = require('Backbone'),
+    React                 = require('React'),
+    _                     = require('underscore'),
     Utils                 = require('../../libs/utils'),
 
     GoogleMapsComponent   = require('./googleMapsComponent.jsx'),
@@ -6,13 +8,27 @@ var React                 = require('React'),
     ResultSearchComponent = require('./resultSearchComponent.jsx');
 
 
-SearchTopBarComponent = React.createClass({
+var SearchTopBarComponent = React.createClass({
 
   getInitialState: function () {
+    var that = this;
+    var sortedList = _.sortBy(this.props.structureList, function (structure) {
+      return structure.creat_at;
+    });
+
+    Utils.modStructureList(sortedList.slice(0, 5), function (err, newList) {
+      if (!err) {
+        Backbone.trigger('firstResult', newList);
+        that.setState({structureObjList: newList});
+      }
+    });
+
     return {structureObjList: {}}
   },
 
   doSearch: function (e) {
+    e.stopPropagation();
+
     var that  = this;
     var query = this.refs.searchInput.getDOMNode().value;
 
@@ -20,7 +36,10 @@ SearchTopBarComponent = React.createClass({
 
       if (result) {
         Utils.modStructureList(result, function (err, newList) {
-          that.setState({structureObjList: newList});
+          if (!err) {
+            Backbone.trigger('newResult', newList);
+            that.setState({structureObjList: newList});
+          }
         });
       }
 
@@ -30,13 +49,18 @@ SearchTopBarComponent = React.createClass({
   render: function () {
     return (
       <div className="content">
-        <div className="search-container">
-          <input type="text" ref="searchInput" placeholder="Search..."/>
-          <button onClick={this.doSearch}>Search!</button>
-        </div>
+        <header className="search-topbar goodluck-header">
+          <input type="text" className="location bd-1 mr-1" ref="searchInput" placeholder="Search..."/>
+          <button onClick={this.doSearch} className="btn-primary btn search-btn">Search!</button>
+        </header>
+
         <div className="results-container">
-          <GoogleMapsComponent structureObjList={this.state.structureObjList}/>
+        <div className="result-search left mx-55 p1">
           <ResultSearchComponent structureList={this.state.structureObjList}/>
+        </div>
+        <div className="map-search right mx-45">
+          <GoogleMapsComponent/>
+        </div>
         </div>
       </div>
     )
