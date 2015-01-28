@@ -1,14 +1,11 @@
 var Backbone              = require('Backbone'),
     _                     = require('underscore'),
     async                 = require('async'),
-    mapUtils              = require('../libs/mapUtils'),
     React                 = require('React'),
 
     Structure             = require('../models/structure.model'),
 
-    SearchTopBarComponent = require('./components/searchTopBarComponent.jsx'),
-    GoogleMapsComponent   = require('./components/googleMapsComponent.jsx'),
-    ResultSearchComponent = require('./components/resultSearchComponent.jsx');
+    ContentComponent      = require('./components/contentComponent.jsx');
 
 
 
@@ -17,8 +14,8 @@ var ContainerComponent = React.createClass({
 
   render: function () {
     return (
-      <div className="content">
-        <SearchTopBarComponent structureList={this.props.completeStructuresList}/>
+      <div className="container">
+        <ContentComponent structureList={this.props.completeStructuresList}/>
       </div>
     )
   }
@@ -33,7 +30,6 @@ var ContainerComponent = React.createClass({
 var view = {};
 
 view.el       = 'body';
-view.template = '<div class="container"></div>';
 view.events   = {};
 
 
@@ -41,8 +37,7 @@ view.events   = {};
 
 view.render = function () {
 
-  this.$el.html(this.template);
-  React.render(<ContainerComponent completeStructuresList={this.structuresList}/>, $('.container').get(0));
+  React.render(<ContainerComponent completeStructuresList={this.structuresList}/>, $('.app').get(0));
   return this;
 
 };

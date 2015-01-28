@@ -1,15 +1,7 @@
 var React               = require('React'),
     _                   = require('underscore'),
 
-    GoogleMapsComponent = require('./googleMapsComponent.jsx'),
-
     Structure           = require('../../models/structure.model');
-
-
-
-
-
-
 
 
 
@@ -39,16 +31,10 @@ ResultSearchComponent = React.createClass({
 
     console.log('list', list);
     return (
-      <div className="result-search">
-        <div className="structure-map">
-          <GoogleMapsComponent structureObjList={this.props.structureList}/>
-        </div>
-        <div className="structure-list">
-          <ul>
-            {list}
-          </ul>
-        </div>
-
+      <div className="list-content">
+        <ul>
+          {list}
+        </ul>
       </div>
     )
   }

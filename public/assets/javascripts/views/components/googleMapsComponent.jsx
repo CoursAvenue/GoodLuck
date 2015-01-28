@@ -3,7 +3,7 @@ var React           = require('React/addons'),
     _               = require('underscore'),
     async           = require('async'),
 
-    mapUtils        = require('../../libs/mapUtils');
+    Utils           = require('../../libs/utils');
 
 
 var GoogleMapsAPI   = window.google.maps;
@@ -63,7 +63,11 @@ var GoogleMapMarkers = React.createClass({
 GoogleMapsComponent = React.createClass({
 
   render: function () {
-    return <GoogleMapMarkers structureObjList={this.props.structureObjList}/>
+    return (
+      <div className="map-content">
+        <GoogleMapMarkers structureObjList={this.props.structureObjList}/>
+      </div>
+    )
   }
 });
 
