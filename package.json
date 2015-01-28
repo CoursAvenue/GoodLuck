@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "watch-js": "watchify -t reactify public/assets/javascripts/main.js -o public/assets/javascripts/bundle.js",
-    "watch-scss": "sass --watch public/assets/stylesheets/main.scss:public/assets/stylesheets/all.css",
+    "watch-scss": "node-sass --watch public/assets/stylesheets/main.scss public/assets/stylesheets/all.css",
     "start": "npm run watch-js & npm run watch-scss & rails s"
   },
   "author": "",
@@ -17,6 +17,7 @@
     "async": "^0.9.0",
     "backbone": "^1.1.2",
     "jquery": "^2.1.3",
+    "node-sass": "^2.0.0-beta",
     "react": "^0.12.2",
     "react-googlemaps": "^0.4.0",
     "reactify": "^1.0.0",
