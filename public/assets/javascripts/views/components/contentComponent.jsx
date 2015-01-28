@@ -55,12 +55,13 @@ var SearchTopBarComponent = React.createClass({
         </header>
 
         <div className="results-container">
-        <div className="result-search left mx-55 p1">
-          <ResultSearchComponent structureList={this.state.structureObjList}/>
-        </div>
-        <div className="map-search right mx-45">
-          <GoogleMapsComponent/>
-        </div>
+          <div className="result-search left mx-55 p1">
+            <ResultSearchComponent structureList={this.state.structureObjList}/>
+          </div>
+
+          <div className="map-search right mx-45">
+            <GoogleMapsComponent/>
+          </div>
         </div>
       </div>
     )

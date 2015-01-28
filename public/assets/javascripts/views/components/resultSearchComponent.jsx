@@ -47,21 +47,16 @@ var ResultSearchComponent = React.createClass({
   },
 
   render: function () {
-    console.log('render: ', this.props.structureList)
 
-    if (this.props.structureList !== 'undefined') {
+    var list = _.map(this.props.structureList, function (structure) {
+        return (
+          <div className="structure border bg-white rounded m-10">
+            <StructureObjectComponent structure={structure}/>
+          </div>
+        );
 
-      var list = _.map(this.props.structureList, function (structure) {
-          return (
-            <div className="structure border bg-white rounded m-10">
-              <StructureObjectComponent structure={structure}/>
-            </div>
-          );
-
-      });
-    }
-
-    console.log('list', list);
+    });
+    
     return (
       <div className="list-content">
         {list}

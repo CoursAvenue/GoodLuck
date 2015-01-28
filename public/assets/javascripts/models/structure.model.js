@@ -1,10 +1,9 @@
-var Backbone  = require('Backbone'),
-    $         = require('jquery');
+var Backbone  = require('Backbone');
 var model     = {};
 
 
 model.initialize = function () {
-  console.log('model init');
+
 };
 
 model.url = "/api/v1/structure/all"

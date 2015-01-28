@@ -8,7 +8,6 @@ var Backbone        = require('Backbone'),
 collection.model = Structure;
 
 collection.initialize = function () {
-  console.log('model init');
 };
 
 

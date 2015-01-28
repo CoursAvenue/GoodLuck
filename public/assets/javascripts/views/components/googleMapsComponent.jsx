@@ -41,10 +41,8 @@ var GoogleMapMarkers = React.createClass({
   },
 
   listenEventInit: function () {
-    console.log('listenEventInit');
     var that = this;
     Backbone.on('firstResult', function (structureObjList) {
-      console.log('ON');
       that.setState({markersList: that.getMarkersPosition(structureObjList)})
     });
   },
@@ -89,8 +87,6 @@ var GoogleMapMarkers = React.createClass({
   },
 
   render: function () {
-
-    console.log('markersList', this.state.markersList, this.getMarkersPosition(this.props.initStructures));
 
     return (
       <Map
