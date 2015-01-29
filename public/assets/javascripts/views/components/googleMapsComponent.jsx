@@ -1,10 +1,7 @@
 var React           = require('React/addons'),
     Backbone        = require('Backbone'),
     ReactGoogleMaps = require('react-googlemaps'),
-    _               = require('underscore'),
-    async           = require('async'),
-
-    Utils           = require('../../libs/utils');
+    _               = require('underscore');
 
 
 var GoogleMapsAPI   = window.google.maps;
@@ -27,9 +24,8 @@ var GoogleMapMarkers = React.createClass({
 
     return {
       center: new LatLng(48.8546926, 2.3368740),
-      zoom: 12,
-      markersList: this.getMarkersPosition(this.props.initStructures),
-      markers: {}
+      zoom: 11,
+      markersList: this.getMarkersPosition(this.props.initStructures)
     };
   },
 

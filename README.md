@@ -8,7 +8,7 @@
     rake db:seed
 
 ### Install && Running
-
+*You need to have sass installed*
 - Fork or download this repository.
 - `cd` to the project's location
 - run `npm install`
