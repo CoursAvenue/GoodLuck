@@ -1,0 +1,14 @@
+.structure {
+  float: left;
+  height: 400px;
+  width: 320px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.result-search {
+  position: absolute;
+  z-index: 1;
+  top: 58px;
+  left: 0px;
+}
